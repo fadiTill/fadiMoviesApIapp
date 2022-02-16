@@ -3,68 +3,36 @@ const fetchData = async (searchTerm) => {
     const response = await axios.get('http://www.omdbapi.com/',{
         params: {
 apikey:'dfc61849',
-//search operation
-// s: 'avengers'
+// search operation
+ s:  searchTerm
 
 //lookup
-i: 'tt0848228'
+// i: 'tt0848228'
         }
     });
-console.log(response.data)
-};
-//  const input = document.querySelector('input');
-// input.addEventListener('input',  (event) => {
-//     fetchData(event.target.value);
 
-// })
+
+    if (response.data.Error){
+      return []  
+    }
+return response.data.Search;
+};
+
 
 const input = document.querySelector('input');
-//create timeout with delay to avoid api call on each key input 
-// const debounce = (func, delay = 1000) => {
-//     let timeoutId;
 
-//     return (...args) => {
-//         if (timeoutId){ 
-//             clearTimeout(timeoutId) 
-//     };
-//     timeoutId = setTimeout(() => {
-//     func.apply(null, args);
-//     // }, 1000)
-//  }, delay)
+const onInput = async event => {
+   const movies =  await fetchData(event.target.value);
+   console.log(movies);
 
-//     }
-// };
+   for(let movie of movies) { 
+       const div = document.createElement('div');
 
-// // let timeoutId;
-// const onInput = debounce(event => {
-//     // const onInput = debounce(event => {
-
-//     fetchData(event.target.value);
-
-//     // if (timeoutId){ 
-//     //    clearTimeout(timeoutId) 
-//     // } 
-//     //     timeoutId = setTimeout(() => {
-//     //     fetchData(event.target.value);
-//     //     }, 500)
-//     // fetchData(event.target.value)
-
-
-// });
-
-// input.addEventListener('input',debounce(onInput, 500));
-
-// // fetchData()
-
-
-const onInput = debounce(event => {
-    
-
-    fetchData(event.target.value);
-
-    
-
-
-});
+       div.innerHTML =` <img src=${movie.Poster}/>
+                        <h1>${movie.Title}<h1/>
+       `;
+document.querySelector('#target').appendChild(div)
+   }
+};
 
 input.addEventListener('input',debounce(onInput, 500));
