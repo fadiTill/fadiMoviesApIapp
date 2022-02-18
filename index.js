@@ -56,3 +56,12 @@ resultsWrapper.appendChild(option);
 };
 
 input.addEventListener('input',debounce(onInput, 500));
+
+document.addEventListener('click', event =>{
+  // console.log(event.target)
+
+  if (!root.contains(event.target)){
+    dropdown.classList.remove('is-active');
+
+  }
+})
