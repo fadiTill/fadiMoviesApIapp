@@ -108,6 +108,26 @@ const  onMovieSelect = async (movie) => {
           <h4>${movieDetail.Genre}</h4>
           <p>${movieDetail.Plot}</p>
           </article>
+          <article class="notification is-primary">
+          <class="title">${movieDetail.Awards}</p>
+          <p class="subtitle">Awards<p/>
+          </article>
+          <article class="notification is-primary">
+          <class="title">${movieDetail.BoxOffices}</p>
+          <p class="subtitle">Box Offices<p/>
+          </article>
+          <article class="notification is-primary">
+          <class="title">${movieDetail.Metascore}</p>
+          <p class="subtitle">Score<p/>
+          </article>
+          <article class="notification is-primary">
+          <class="title">${movieDetail.imdbRating}</p>
+          <p class="subtitle">Rating<p/>
+          </article>
+          <article class="notification is-primary">
+          <class="title">${movieDetail.imdbVotes}</p>
+          <p class="subtitle">Votes<p/>
+          </article>
           `;
 
-        }
+        };
