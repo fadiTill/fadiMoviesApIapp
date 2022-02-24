@@ -1,13 +1,19 @@
-.tuto {
+.tutorial {
   width: 600px;
   text-align: center;
   margin: auto;
+ 
 }
+
+.color-Two {
+  color:turquoise
+}
+ 
 
 figure.image {
   display: flex;
   justify-content: center;
-  background-color: black;
+  background-color:black;
 }
 
 figure .image img {
@@ -25,6 +31,7 @@ figure .image img {
 
 .title .icon {
   margin-left: 15px;
+  
 }
 
 .hero {
