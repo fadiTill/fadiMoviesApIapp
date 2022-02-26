@@ -1,8 +1,5 @@
 
-
-
-createAutoComplete({
-  root: document.querySelector('.autocomplete'),
+const autocompleteConfig = {
   renderOption(movie){
     const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster;
     return ` <img src="${imgSrc}"/>
@@ -34,7 +31,17 @@ s:  searchTerm
   }
 return response.data.Search;
 },
+}
+
+createAutoComplete({
+  ...autocompleteConfig,
+  root: document.querySelector('#left-autocomplete'),
   });
+  createAutoComplete({
+    ...autocompleteConfig,
+    root: document.querySelector('#right-autocomplete'),
+    });
+  
 
 
 // const root = document.querySelector('.autocomplete');
