@@ -67,7 +67,7 @@ const onMovieSelect = async (movie, summaryElement, side) => {
   }
 };
 const runCamparison = () => {
-console.log('test')
+// console.log('test')
 }
 
 const movieTemplate = movieDetail => {
@@ -79,7 +79,23 @@ const imdbRating = parseFloat(movieDetail.imdbRating);
 const imdbVotes  = parseInt(movieDetail.imdbVotes.replace(/,/g,''));
 
 
-console.log(metascore,imdbRating,imdbVotes);
+const awards =  movieDetail.Awards.split(' ').reduce((prev, word) => {
+  const value = parseInt(word);
+
+
+if(isNaN(value)){
+  return prev;
+ } else {
+
+  return prev + value;
+//   count = count + value;
+  
+}
+
+}, 0);
+console.log(awards)
+
+// console.log(metascore,imdbRating,imdbVotes);
   return `
     <article class="media">
       <figure class="media-left">
